@@ -1,4 +1,3 @@
-
 import json
 from firebase_admin import db, credentials
 from pathlib import Path
@@ -18,10 +17,8 @@ TBA_h = TBA_helper(token_path=Path(Path.cwd(),"TBA_token.json"))
 firebase_h = firebase_helper(db_url=DATA_BASE_URL,token_path=Path(Path.cwd(),"firebase_auth_key.json"))
 
 if __name__ == "__main__":
-    matches = TBA_h.fetch_matches(request=MATCHES_REQUEST_URL)
-
-    match_h.write_matches(matches=matches)
-    match_h.sort_matches()
     match_h.give_times()
+    matches = match_h.load_matches()
 
-    firebase_h.post_data(data=match_h.load_matches(),path=f"{BRANCH}/matches")
+    firebase_h.post_data(data=matches,path=f"{BRANCH}/matches")
+    
