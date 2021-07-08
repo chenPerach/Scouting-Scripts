@@ -24,9 +24,10 @@ class teams_helper:
         return teams
 
 class firebase_helper:
-    def __init__(self,db_url : str,token_path : Path):
+    def __init__(self,db_url : Path,token_path : Path):
+        
         cred = credentials.Certificate(token_path)
-        firebase_admin.initialize_app(cred,{"databaseURL":db_url})
+        firebase_admin.initialize_app(cred,{"databaseURL":json.load(open(db_url,"r"))["url"]})
     
     def post_data(self,data,path):
         ref = db.reference("/")
