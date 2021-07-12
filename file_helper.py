@@ -12,7 +12,8 @@ from firebase_admin import db, credentials
 class teams_helper:
     def __init__(self,path : Path):
         self.path = path
-    
+    def procces_teams(self,data :list)->list:
+        return [{"nickname":e["nickname"],"number":e["number"]} for e in data];    
     def write_teams(self,teams: list) -> None:
         with open(self.path,"w") as f:
             json.dump(teams,f)
