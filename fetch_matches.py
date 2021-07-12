@@ -6,7 +6,7 @@ from file_helper import *
 
 
 BRANCH = "2021isjo"
-MATCHES_REQUEST_URL = "https://www.thebluealliance.com/api/v3/event/2020isde1/matches/simple"
+MATCHES_REQUEST_URL = "https://www.thebluealliance.com/api/v3/event/2021isjo/matches/simple"
 
 '''
  the token is securly stored in a json file in this directory

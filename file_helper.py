@@ -49,6 +49,7 @@ class TBA_helper:
         '''
         data = json.loads(requests.get(request,
                               headers={'X-TBA-Auth-Key':self.token}).text)
+        print(data)
         matches = []
         for match in data:
             matches.append({
